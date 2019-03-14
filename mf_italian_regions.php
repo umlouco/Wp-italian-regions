@@ -24,8 +24,9 @@ function mf_regions() {
     if (!empty($_GET['mf_province'])) {
         $current_province = sanitize_text_field($_GET['mf_province']);
     }
-
+    ob_start();
     include(plugin_dir_path(__FILE__) . 'views/select_regions.php');
+    return ob_get_clean();
 }
 
 register_activation_hook( __FILE__, 'mf_install_itdb' );
